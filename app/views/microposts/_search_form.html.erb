@@ -1,0 +1,8 @@
+<%= form_tag microposts_path, method: :get do |f| %>
+  <div class="field">
+    <%= text_field_tag :keyword %>
+  </div>
+  <div class="actions">
+    <%= submit_tag "Search", :name => nil %>
+  </div>
+<% end %>
