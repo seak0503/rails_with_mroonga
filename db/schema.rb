@@ -12,15 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20170705084138) do
 
-  create_table "documents", force: :cascade, options: "ENGINE=Mroonga DEFAULT CHARSET=utf8" do |t|
+  create_table "documents", force: :cascade, options: "ENGINE=Mroonga DEFAULT CHARSET=utf8", comment: "engine \"InnoDB\"" do |t|
     t.text "title"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["content"], name: "index_documents_on_content", type: :fulltext
+    t.index ["content"], name: "index_documents_on_content", type: :fulltext, comment: "normalizer \"NormalizerMySQLUnicodeCIExceptKanaCIKanaWithVoicedSoundMark\""
+    t.index ["title"], name: "index_documents_on_title", type: :fulltext, comment: "normalizer \"NormalizerMySQLUnicodeCIExceptKanaCIKanaWithVoicedSoundMark\""
   end
 
-  create_table "microposts", force: :cascade, options: "ENGINE=Mroonga DEFAULT CHARSET=utf8" do |t|
+  create_table "microposts", force: :cascade, options: "ENGINE=Mroonga DEFAULT CHARSET=utf8", comment: "engine \"InnoDB\"" do |t|
     t.string "content"
     t.integer "user_id"
     t.datetime "created_at", null: false

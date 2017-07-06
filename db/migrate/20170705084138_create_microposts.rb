@@ -1,6 +1,6 @@
 class CreateMicroposts < ActiveRecord::Migration[5.1]
   def change
-    create_table :microposts, options: 'ENGINE=Mroonga' do |t|
+    create_table :microposts, comment: 'engine "InnoDB"', options: 'ENGINE=Mroonga' do |t|
       t.string :content
       t.integer :user_id
 
