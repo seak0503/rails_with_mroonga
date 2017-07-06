@@ -7,7 +7,7 @@ class MicropostsController < ApplicationController
     @microposts = Micropost.all
     query = params[:keyword]
     columns = "content"
-    @microposts = Micropost.mrn_search(query, columns) if query.present?
+    @microposts = Micropost.mrn_search(query, columns).mrn_snippet(query, columns) if query.present?
   end
 
   # GET /microposts/1
